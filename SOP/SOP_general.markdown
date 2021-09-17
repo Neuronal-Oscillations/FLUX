@@ -92,6 +92,7 @@ The coils must be covered by the MEG helmet/sensor array, so place them as high 
 
 1. Tape the yellow coil to the participant. This one will not be used or digitized.
 2. Have the participant carefully put on the _Polhemus_ goggles.
+
  ![](https://github.com/Neuronal-Oscillations/FLUX/blob/alt_SOP_file_format/SOP/images/sop_image1.png)
 
 Figure 2. Standard locations of HPI coils.
