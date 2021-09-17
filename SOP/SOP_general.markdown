@@ -64,6 +64,7 @@ Clean and scrub skin where the electrodes will be attached.
 5. REF: Attach on the participant&#39;s right cheekbone (REF).
 
 ![](https://github.com/Neuronal-Oscillations/FLUX/blob/alt_SOP_file_format/SOP/images/sop_image1.png)
+
 Figure 1. Locations of EOG and ECG electrodes
 
 ### EEG cap montage
@@ -93,6 +94,7 @@ The coils must be covered by the MEG helmet/sensor array, so place them as high 
 2. Have the participant carefully put on the _Polhemus_ goggles.
 
  ![](https://github.com/Neuronal-Oscillations/FLUX/blob/alt_SOP_file_format/SOP/images/sop_image1.png)
+
 Figure 2. Standard locations of HPI coils.
 
 Coil Numbers
