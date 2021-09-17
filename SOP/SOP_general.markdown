@@ -4,7 +4,7 @@
 
 # MEG/EEG/Eye-tracking
 
-Example for the MEGIN Triux System derived for the Cogitate Project
+Example for the MEGIN Triux System derived for the [Cogitate Project] (https://arc-cogitate.com/)
 
 Preparation: The control room and the magnetically shielded room
 
