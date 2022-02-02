@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2021b"><title>Extracting condition-specific trials</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin-bottom: 20px; padding-bottom: 4px;  }
+.S2 { margin: 0px; padding: 10px 0px 10px 5px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 700; text-align: start;  }
+.S3 { margin: -1px 0px 0px; padding: 10px 0px 10px 7px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: start;  }
+.S4 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S5 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S8 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S9 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S10 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S11 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S12 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2019 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: rgb(255,100,0);    text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: rgb(230,0,0);    text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S13 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S14 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0' id = 'H_CB616ED7' ><span>Extracting condition-specific trials</span></h1><div  class = 'S1'><div  class = 'S2'><span style=' font-weight: bold;'>Table of Contents</span></div><div  class = 'S3'><a href = "#H_B7A7627B"><span>Introduction
+</span></a><a href = "#H_E6E77FBE"><span>Preparation 
+</span></a><a href = "#H_06D9103C"><span>Trial functions
+</span></a><a href = "#H_BF866510"><span>Segmenting the data and creating trials
+</span></a><a href = "#H_8E19D035"><span>Preregistration and publications</span></a></div></div><h2  class = 'S4' id = 'H_B7A7627B' ><span style=' font-weight: bold;'>Introduction</span></h2><div  class = 'S5'><span>The first step in processing and analysing the data is to read in the trials. This means converting the raw FIF data into a Matlab structure containing the trial segmented data as well as extracting the information needed for further processing. The data reading includes segmenting the trials around the selected triggers.  </span></div><div  class = 'S5'><span>To read and segment the trial data from the continuously recorded data we will be using the Fieldtrip functions 'ft_definetrial' and 'ft_preprocessing'. We will epoch the data in 4.5 s segments (2.5 s prior  and 2 s after stimulus onset). For more on how to read data, see the </span><a href = "http://www.fieldtriptoolbox.org/example/getting_started_with_reading_raw_eeg_or_meg_data"><span>Getting started</span></a><span> and </span><a href = "http://www.fieldtriptoolbox.org/tutorial/preprocessing"><span>Preprocessing</span></a><span> tutorials on the FieldTrip website.</span></div><h2  class = 'S4' id = 'H_E6E77FBE' ><span style=' font-weight: bold;'>Preparation</span><span> </span></h2><div  class = 'S5'><span>Initialize FiedTrip</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >ft_defaults</span></span></div></div></div><div  class = 'S7'><span>Set the path and the file names of the FIF files. We will be using the MaxFiltered data.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >data_path = </span><span style="color: rgb(170, 4, 249);">'C:\YOUR_DATA_FOLDER\'</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >file_name = [</span><span style="color: rgb(170, 4, 249);">'training_rawsss-1.fif'</span><span >;</span><span style="color: rgb(170, 4, 249);">'training_rawsss-2.fif'</span><span >];</span></span></div></div></div><h2  class = 'S4' id = 'H_06D9103C' ><span style=' font-weight: bold;'>Trial functions</span></h2><div  class = 'S5'><span>The trial-function (cfg.trialfun) should first be defined. It is a Matlab function which specifies how to select the trials based on the trigger information. Often Fieldtrip's generic function can be used for segmenting the data (ft_trialfun_general). This is the case if all you want is to select a time-window around the specified triggers. By using  custom written  trial-functions, it is  possible to perform a complex trial-selection (for instance taking behavioural responses into account). For further information see the FiedTrip </span><a href = "http://www.fieldtriptoolbox.org/example/making_your_own_trialfun_for_conditional_trial_definition"><span>tutorial</span></a><span>.</span></div><h2  class = 'S4' id = 'H_BF866510' ><span style=' font-weight: bold;'>Segmenting the data and creating trials</span></h2><div  class = 'S5'><span>For reading the data in, we will first need to specify the MEG dataset ('cfg.dataset'), the events which the trials should be locked to and how many seconds prior ('cfg.trialdef.prestim') and after ('cfg.trialdef.poststim') the event a trial should contain. The event type is specified in 'cfg.trialdef.eventtype' and defined by the trigger channel (e.g. STI101, Stimulus, Response). The event/trigger value is  specified in 'cfg.trialdef.eventvalue'.  </span></div><div  class = 'S5'><span>Here the 'attend left' trials are coded with the trigger '21', whereas the 'attend right' trials with '22'.   </span></div><div  class = 'S5'><span>In this case, reading the data in does not require custom-written trial function and so the default 'ft_trialfun_general' will be used (hence it is not necessary to specify 'cfg.trialfun'). </span></div><div  class = 'S5'><span>With the trial specification set, we can run the 'ft_definetrial' function, which provides a 'cfg' structure as output. Note that the actual trial segmentation is not performed just yet. This step is done by running the 'ft_preprocessing' function with the 'cfg' structure as input.  </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >cfg                         = [];</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >cfg.dataset                 = [data_path, file_name(1,:)];</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >cfg.trialdef.eventtype      = </span><span style="color: rgb(170, 4, 249);">'STI101'</span><span >;  </span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >cfg.trialdef.eventvalue     = [21 22];    </span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >cfg.trialdef.prestim        = 2.5; </span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >cfg.trialdef.poststim       = 2; </span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S11'><span style="white-space: pre"><span >cfg                         = ft_definetrial(cfg);</span></span></div><div  class = 'S12'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="8B2F12E2" data-testid="output_0" style="width: 802px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="772" data-height="106" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">evaluating trialfunction 'ft_trialfun_general'
+reading the header from 'C:\Users\Tamas\Documents\training_rawsss-1.fif'
+	306 MEG channel locations transformed
+Reading C:\Users\Tamas\Documents\training_rawsss-1.fif ...
+Opening raw data file C:\Users\Tamas\Documents\training_rawsss-1.fif...
+	Range : 208000 ... 1664999  =    208.000 ...  1664.999 secs
+Ready.</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsWarningElement" uid="40FF2537" data-testid="output_1" style="width: 802px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="diagnosticMessage-wrapper diagnosticMessage-warningType eoOutputContent" data-width="772" data-height="17" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: normal; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;"><div class="diagnosticMessage-messagePart" style="white-space: pre-wrap; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;">Warning: assuming that the default scaling should be amplitude/distance rather than amplitude</div><div class="diagnosticMessage-stackPart" style="white-space: pre; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;"></div></div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="BCB08648" data-testid="output_2" style="width: 802px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="772" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">reading the events from 'C:\Users\Tamas\Documents\training_rawsss-1.fif'
+	306 MEG channel locations transformed
+Reading C:\Users\Tamas\Documents\training_rawsss-1.fif ...
+Opening raw data file C:\Users\Tamas\Documents\training_rawsss-1.fif...
+	Range : 208000 ... 1664999  =    208.000 ...  1664.999 secs
+Ready.
+Reading 208000 ... 1664999  =    208.000 ...  1664.999 secs... [done]
+Reading 208000 ... 1664999  =    208.000 ...  1664.999 secs... [done]
+Fixing trigger at sample 331854
+Fixing trigger at sample 838423
+found 3359 events
+created 139 trials
+the call to "ft_definetrial" took 22 seconds</div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S13'><span style="white-space: pre"><span >data_all = ft_preprocessing(cfg);</span></span></div><div  class = 'S12'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="4556E8DE" data-testid="output_3" style="width: 802px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="772" data-height="2188" data-hashorizontaloverflow="true" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">	306 MEG channel locations transformed
+Reading C:\Users\Tamas\Documents\training_rawsss-1.fif ...
+Opening raw data file C:\Users\Tamas\Documents\training_rawsss-1.fif...
+	Range : 208000 ... 1664999  =    208.000 ...  1664.999 secs
+Ready.
+processing channel { 'EOG001' 'EOG002' 'ECG003' 'IASX+' 'IASX-' 'IASY+' 'IASY-' 'IASZ+' 'IASZ-' 'IAS_DX' 'IAS_DY' 'IAS_X' 'IAS_Y' 'IAS_Z' 'MEG0111' 'MEG0112' 'MEG0113' 'MEG0121' 'MEG0122' 'MEG0123' 'MEG0131' 'MEG0132' 'MEG0133' 'MEG0141' 'MEG0142' 'MEG0143' 'MEG0211' 'MEG0212' 'MEG0213' 'MEG0221' 'MEG0222' 'MEG0223' 'MEG0231' 'MEG0232' 'MEG0233' 'MEG0241' 'MEG0242' 'MEG0243' 'MEG0311' 'MEG0312' 'MEG0313' 'MEG0321' 'MEG0322' 'MEG0323' 'MEG0331' 'MEG0332' 'MEG0333' 'MEG0341' 'MEG0342' 'MEG0343' 'MEG0411' 'MEG0412' 'MEG0413' 'MEG0421' 'MEG0422' 'MEG0423' 'MEG0431' 'MEG0432' 'MEG0433' 'MEG0441' 'MEG0442' 'MEG0443' 'MEG0511' 'MEG0512' 'MEG0513' 'MEG0521' 'MEG0522' 'MEG0523' 'MEG0531' 'MEG0532' 'MEG0533' 'MEG0541' 'MEG0542' 'MEG0543' 'MEG0611' 'MEG0612' 'MEG0613' 'MEG0621' 'MEG0622' 'MEG0623' 'MEG0631' 'MEG0632' 'MEG0633' 'MEG0641' 'MEG0642' 'MEG0643' 'MEG0711' 'MEG0712' 'MEG0713' 'MEG0721' 'MEG0722' 'MEG0723' 'MEG0731' 'MEG0732' 'MEG0733' 'MEG0741' 'MEG0742' 'MEG0743' 'MEG0811' 'MEG0812' 'MEG0813' 'MEG0821' 'MEG0822' 'MEG0823' 'MEG0911' 'MEG0912' 'MEG0913' 'MEG0921' 'MEG0922' 'MEG0923' 'MEG0931' 'MEG0932' 'MEG0933' 'MEG0941' 'MEG0942' 'MEG0943' 'MEG1011' 'MEG1012' 'MEG1013' 'MEG1021' 'MEG1022' 'MEG1023' 'MEG1031' 'MEG1032' 'MEG1033' 'MEG1041' 'MEG1042' 'MEG1043' 'MEG1111' 'MEG1112' 'MEG1113' 'MEG1121' 'MEG1122' 'MEG1123' 'MEG1131' 'MEG1132' 'MEG1133' 'MEG1141' 'MEG1142' 'MEG1143' 'MEG1211' 'MEG1212' 'MEG1213' 'MEG1221' 'MEG1222' 'MEG1223' 'MEG1231' 'MEG1232' 'MEG1233' 'MEG1241' 'MEG1242' 'MEG1243' 'MEG1311' 'MEG1312' 'MEG1313' 'MEG1321' 'MEG1322' 'MEG1323' 'MEG1331' 'MEG1332' 'MEG1333' 'MEG1341' 'MEG1342' 'MEG1343' 'MEG1411' 'MEG1412' 'MEG1413' 'MEG1421' 'MEG1422' 'MEG1423' 'MEG1431' 'MEG1432' 'MEG1433' 'MEG1441' 'MEG1442' 'MEG1443' 'MEG1511' 'MEG1512' 'MEG1513' 'MEG1521' 'MEG1522' 'MEG1523' 'MEG1531' 'MEG1532' 'MEG1533' 'MEG1541' 'MEG1542' 'MEG1543' 'MEG1611' 'MEG1612' 'MEG1613' 'MEG1621' 'MEG1622' 'MEG1623' 'MEG1631' 'MEG1632' 'MEG1633' 'MEG1641' 'MEG1642' 'MEG1643' 'MEG1711' 'MEG1712' 'MEG1713' 'MEG1721' 'MEG1722' 'MEG1723' 'MEG1731' 'MEG1732' 'MEG1733' 'MEG1741' 'MEG1742' 'MEG1743' 'MEG1811' 'MEG1812' 'MEG1813' 'MEG1821' 'MEG1822' 'MEG1823' 'MEG1831' 'MEG1832' 'MEG1833' 'MEG1841' 'MEG1842' 'MEG1843' 'MEG1911' 'MEG1912' 'MEG1913' 'MEG1921' 'MEG1922' 'MEG1923' 'MEG1931' 'MEG1932' 'MEG1933' 'MEG1941' 'MEG1942' 'MEG1943' 'MEG2011' 'MEG2012' 'MEG2013' 'MEG2021' 'MEG2022' 'MEG2023' 'MEG2031' 'MEG2032' 'MEG2033' 'MEG2041' 'MEG2042' 'MEG2043' 'MEG2111' 'MEG2112' 'MEG2113' 'MEG2121' 'MEG2122' 'MEG2123' 'MEG2131' 'MEG2132' 'MEG2133' 'MEG2141' 'MEG2142' 'MEG2143' 'MEG2211' 'MEG2212' 'MEG2213' 'MEG2221' 'MEG2222' 'MEG2223' 'MEG2231' 'MEG2232' 'MEG2233' 'MEG2241' 'MEG2242' 'MEG2243' 'MEG2311' 'MEG2312' 'MEG2313' 'MEG2321' 'MEG2322' 'MEG2323' 'MEG2331' 'MEG2332' 'MEG2333' 'MEG2341' 'MEG2342' 'MEG2343' 'MEG2411' 'MEG2412' 'MEG2413' 'MEG2421' 'MEG2422' 'MEG2423' 'MEG2431' 'MEG2432' 'MEG2433' 'MEG2441' 'MEG2442' 'MEG2443' 'MEG2511' 'MEG2512' 'MEG2513' 'MEG2521' 'MEG2522' 'MEG2523' 'MEG2531' 'MEG2532' 'MEG2533' 'MEG2541' 'MEG2542' 'MEG2543' 'MEG2611' 'MEG2612' 'MEG2613' 'MEG2621' 'MEG2622' 'MEG2623' 'MEG2631' 'MEG2632' 'MEG2633' 'MEG2641' 'MEG2642' 'MEG2643' 'MISC001' 'MISC002' 'MISC003' 'STI001' 'STI002' 'STI003' 'STI004' 'STI005' 'STI006' 'STI007' 'STI008' 'STI009' 'STI010' 'STI011' 'STI012' 'STI013' 'STI014' 'STI015' 'STI016' 'STI101' 'STI102' 'SYS101' 'SYS201' }
+reading and preprocessing
+Reading 232279 ... 236778  =    232.279 ...   236.778 secs... [done]
+reading and preprocessing trial 2 from 139
+Reading 239077 ... 243576 reading and preprocessing trial 3 from 139
+Reading 246925 ... 251424 reading and preprocessing trial 4 from 139
+Reading 254139 ... 258638  =    254.139 ...   258.638 secs... [done]
+Reading 262922 ... 267421 reading and preprocessing trial 6 from 139
+Reading 270953 ... 275452 reading and preprocessing trial 7 from 139
+Reading 279052 ... 283551  =    279.052 ...   283.551 secs... [done]
+Reading 288151 ... 292650 reading and preprocessing trial 9 from 139
+Reading 297250 ... 301749  =    297.250 ...   301.749 secs... [done]
+Reading 304073 ... 308572 reading and preprocessing trial 11 from 139
+Reading 310987 ... 315486reading and preprocessing trial 12 from 139
+Reading 318952 ... 323451reading and preprocessing trial 13 from 139
+Reading 327685 ... 332184  =    327.685 ...   332.184 secs... [done]
+Reading 336942 ... 341441reading and preprocessing trial 15 from 139
+Reading 344966 ... 349465  =    344.966 ...   349.465 secs... [done]
+Reading 353873 ... 358372reading and preprocessing trial 17 from 139
+Reading 362839 ... 367338reading and preprocessing trial 18 from 139
+Reading 369803 ... 374302reading and preprocessing trial 19 from 139
+Reading 377435 ... 381934  =    377.435 ...   381.934 secs... [done]
+Reading 386368 ... 390867reading and preprocessing trial 21 from 139
+Reading 394191 ... 398690  =    394.191 ...   398.690 secs... [done]
+Reading 402289 ... 406788reading and preprocessing trial 23 from 139
+Reading 411547 ... 416046reading and preprocessing trial 24 from 139
+Reading 419604 ... 424103reading and preprocessing trial 25 from 139
+Reading 426835 ... 431334reading and preprocessing trial 26 from 139
+Reading 434416 ... 438915  =    434.416 ...   438.915 secs... [done]
+Reading 453674 ... 458173reading and preprocessing trial 28 from 139
+Reading 462565 ... 467064reading and preprocessing trial 29 from 139
+Reading 471823 ... 476322reading and preprocessing trial 30 from 139
+Reading 481081 ... 485580  =    481.081 ...   485.580 secs... [done]
+Reading 490047 ... 494546reading and preprocessing trial 32 from 139
+Reading 498771 ... 503270reading and preprocessing trial 33 from 139
+Reading 505835 ... 510334reading and preprocessing trial 34 from 139
+Reading 514784 ... 519283reading and preprocessing trial 35 from 139
+Reading 523667 ... 528166reading and preprocessing trial 36 from 139
+Reading 530839 ... 535338reading and preprocessing trial 37 from 139
+Reading 538571 ... 543070reading and preprocessing trial 38 from 139
+Reading 546761 ... 551260reading and preprocessing trial 39 from 139
+Reading 554668 ... 559167reading and preprocessing trial 40 from 139
+Reading 562858 ... 567357reading and preprocessing trial 41 from 139
+Reading 570473 ... 574972  =    570.473 ...   574.972 secs... [done]
+Reading 577787 ... 582286reading and preprocessing trial 43 from 139
+Reading 585752 ... 590251reading and preprocessing trial 44 from 139
+Reading 593059 ... 597558reading and preprocessing trial 45 from 139
+Reading 600073 ... 604572reading and preprocessing trial 46 from 139
+Reading 608980 ... 613479reading and preprocessing trial 47 from 139
+Reading 617863 ... 622362reading and preprocessing trial 48 from 139
+Reading 626562 ... 631061reading and preprocessing trial 49 from 139
+Reading 634293 ... 638792reading and preprocessing trial 50 from 139
+Reading 643159 ... 647658reading and preprocessing trial 51 from 139
+Reading 650891 ... 655390  =    650.891 ...   655.390 secs... [done]
+Reading 658005 ... 662504reading and preprocessing trial 53 from 139
+Reading 695220 ... 699719reading and preprocessing trial 54 from 139
+Reading 704211 ... 708710reading and preprocessing trial 55 from 139
+Reading 713135 ... 717634reading and preprocessing trial 56 from 139
+Reading 721434 ... 725933  =    721.434 ...   725.933 secs... [done]
+Reading 730358 ... 734857reading and preprocessing trial 58 from 139
+Reading 737389 ... 741888  =    737.389 ...   741.888 secs... [done]
+Reading 744920 ... 749419reading and preprocessing trial 60 from 139
+Reading 751809 ... 756308reading and preprocessing trial 61 from 139
+Reading 760558 ... 765057  =    760.558 ...   765.057 secs... [done]
+Reading 768965 ... 773464reading and preprocessing trial 63 from 139
+Reading 777898 ... 782397reading and preprocessing trial 64 from 139
+Reading 786922 ... 791421reading and preprocessing trial 65 from 139
+Reading 795229 ... 799728  =    795.229 ...   799.728 secs... [done]
+Reading 803203 ... 807702reading and preprocessing trial 67 from 139
+Reading 811952 ... 816451  =    811.952 ...   816.451 secs... [done]
+Reading 820718 ... 825217reading and preprocessing trial 69 from 139
+Reading 829442 ... 833941  =    829.442 ...   833.941 secs... [done]
+Reading 838699 ... 843198reading and preprocessing trial 71 from 139
+Reading 847690 ... 852189reading and preprocessing trial 72 from 139
+Reading 855605 ... 860104reading and preprocessing trial 73 from 139
+Reading 864354 ... 868853reading and preprocessing trial 74 from 139
+Reading 873045 ... 877544reading and preprocessing trial 75 from 139
+Reading 881402 ... 885901reading and preprocessing trial 76 from 139
+Reading 888900 ... 893399reading and preprocessing trial 77 from 139
+Reading 898158 ... 902657  =    898.158 ...   902.657 secs... [done]
+Reading 906506 ... 911005reading and preprocessing trial 79 from 139
+Reading 963354 ... 967853  =    963.354 ...   967.853 secs... [done]
+Reading 972437 ... 976936reading and preprocessing trial 81 from 139
+Reading 980444 ... 984943reading and preprocessing trial 82 from 139
+Reading 989702 ... 994201reading and preprocessing trial 83 from 139
+Reading 998042 ... 1002541reading and preprocessing trial 84 from 139
+Reading 1005115 ... 1009614reading and preprocessing trial 85 from 139
+Reading 1013555 ... 1018054reading and preprocessing trial 86 from 139
+Reading 1020878 ... 1025377reading and preprocessing trial 87 from 139
+Reading 1028968 ... 1033467reading and preprocessing trial 88 from 139
+Reading 1036558 ... 1041057reading and preprocessing trial 89 from 139
+Reading 1043923 ... 1048422reading and preprocessing trial 90 from 139
+Reading 1052355 ... 1056854reading and preprocessing trial 91 from 139
+Reading 1060620 ... 1065119reading and preprocessing trial 92 from 139
+Reading 1069878 ... 1074377reading and preprocessing trial 93 from 139
+Reading 1078393 ... 1082892reading and preprocessing trial 94 from 139
+Reading 1087126 ... 1091625reading and preprocessing trial 95 from 139
+Reading 1094574 ... 1099073reading and preprocessing trial 96 from 139
+Reading 1102756 ... 1107255reading and preprocessing trial 97 from 139
+Reading 1110662 ... 1115161reading and preprocessing trial 98 from 139
+Reading 1118561 ... 1123060reading and preprocessing trial 99 from 139
+Reading 1125942 ... 1130441reading and preprocessing trial 100 from 139
+Reading 1134883 ... 113938reading and preprocessing trial 101 from 139
+Reading 1143632 ... 114813reading and preprocessing trial 102 from 139
+Reading 1150938 ... 1155437  =   1150.938 ...  1155.437 secs... [done]
+Reading 1159804 ... 116430reading and preprocessing trial 104 from 139
+Reading 1168895 ... 117339reading and preprocessing trial 105 from 139
+Reading 1380215 ... 1384714  =   1380.215 ...  1384.714 secs... [done]
+Reading 1388363 ... 139286reading and preprocessing trial 107 from 139
+Reading 1396562 ... 140106reading and preprocessing trial 108 from 139
+Reading 1405820 ... 141031reading and preprocessing trial 109 from 139
+Reading 1414736 ... 141923reading and preprocessing trial 110 from 139
+Reading 1423993 ... 1428492  =   1423.993 ...  1428.492 secs... [done]
+Reading 1432217 ... 143671reading and preprocessing trial 112 from 139
+Reading 1439290 ... 1443789  =   1439.290 ...  1443.789 secs... [done]
+Reading 1446220 ... 145071reading and preprocessing trial 114 from 139
+Reading 1453068 ... 1457567  =   1453.068 ...  1457.567 secs... [done]
+Reading 1461500 ... 146599reading and preprocessing trial 116 from 139
+Reading 1468356 ... 1472855  =   1468.356 ...  1472.855 secs... [done]
+Reading 1475996 ... 148049reading and preprocessing trial 118 from 139
+Reading 1484444 ... 1488943  =   1484.444 ...  1488.943 secs... [done]
+Reading 1491083 ... 149558reading and preprocessing trial 120 from 139
+Reading 1498198 ... 150269reading and preprocessing trial 121 from 139
+Reading 1505229 ... 1509728  =   1505.229 ...  1509.728 secs... [done]
+Reading 1512360 ... 151685reading and preprocessing trial 123 from 139
+Reading 1520792 ... 152529reading and preprocessing trial 124 from 139
+Reading 1527581 ... 153208reading and preprocessing trial 125 from 139
+Reading 1534328 ... 1538827  =   1534.328 ...  1538.827 secs... [done]
+Reading 1541509 ... 154600reading and preprocessing trial 127 from 139
+Reading 1549141 ... 1553640  =   1549.141 ...  1553.640 secs... [done]
+Reading 1557439 ... 156193reading and preprocessing trial 129 from 139
+Reading 1565888 ... 1570387  =   1565.888 ...  1570.387 secs... [done]
+Reading 1574863 ... 157936reading and preprocessing trial 131 from 139
+Reading 1590926 ... 1595425  =   1590.926 ...  1595.425 secs... [done]
+Reading 1597815 ... 160231reading and preprocessing trial 133 from 139
+Reading 1605964 ... 1610463  =   1605.964 ...  1610.463 secs... [done]
+Reading 1612853 ... 161735reading and preprocessing trial 135 from 139
+Reading 1620993 ... 1625492  =   1620.993 ...  1625.492 secs... [done]
+Reading 1629525 ... 163402reading and preprocessing trial 137 from 139
+Reading 1636606 ... 1641105  =   1636.606 ...  1641.105 secs... [done]
+Reading 1643737 ... 164823reading and preprocessing trial 139 from 139
+Reading 1652995 ... 1657494  =   1652.995 ...  1657.494 secs... [done]
+
+the call to "ft_preprocessing" took 20 seconds</div></div></div></div></div><div  class = 'S7'><span>This output (cfg) of 'ft_definetrial' contains all the information 'ft_preprocessing' will need, such as the name of the dataset, the name of the trial-function and a number of other pieces of information. Amongst them are the output structures of our trial-function the 'event' and 'trl' fields, discussed above.</span></div><div  class = 'S5'><span>The output structure of ft_preprocessing ('data_all') looks very dissimilar: </span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S14'><span style="white-space: pre"><span >data_all</span></span></div><div  class = 'S12'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="909A28B6" data-testid="output_4" style="width: 802px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="772" data-height="153" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">data_all = <span class="headerElement" style="white-space: pre; font-style: italic; color: rgb(179, 179, 179); font-size: 12px;">struct with fields:</span></span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">           hdr: [1×1 struct]
+         label: {343×1 cell}
+          time: {1×139 cell}
+         trial: {1×139 cell}
+       fsample: 1000
+    sampleinfo: [139×2 double]
+     trialinfo: [139×1 double]
+          grad: [1×1 struct]
+           cfg: [1×1 struct]
+</div></div></div></div></div></div><div  class = 'S7'><span>Importantly this now contains the segmented data in the 'trial'  field. The other fields contain other relevant information such as the codes distinguishing 'attend left' and 'attend right' trials (21 and 22, respectively) in the 'trialinfo' field. This 'data_all' structure can be used for further processing steps.</span></div><h2  class = 'S4' id = 'H_8E19D035' ><span style=' font-weight: bold;'>Preregistration and publications</span></h2><div  class = 'S5'><span>Publication, example: </span></div><div  class = 'S5'><span style=' font-family: monospace;'>"</span><span>The data were segmented into intervals of 4.5 s, ranging from 2.5 s prior to stimulus onset and 2 s after.</span><span style=' font-family: monospace;'>" </span></div><div  class = 'S5'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Extracting condition-specific trials
+%% *Introduction*
+% The first step in processing and analysing the data is to read in the trials. 
+% This means converting the raw FIF data into a Matlab structure containing the 
+% trial segmented data as well as extracting the information needed for further 
+% processing. The data reading includes segmenting the trials around the selected 
+% triggers.  
+% 
+% To read and segment the trial data from the continuously recorded data we 
+% will be using the Fieldtrip functions 'ft_definetrial' and 'ft_preprocessing'. 
+% We will epoch the data in 4.5 s segments (2.5 s prior  and 2 s after stimulus 
+% onset). For more on how to read data, see the <http://www.fieldtriptoolbox.org/example/getting_started_with_reading_raw_eeg_or_meg_data 
+% Getting started> and <http://www.fieldtriptoolbox.org/tutorial/preprocessing 
+% Preprocessing> tutorials on the FieldTrip website.
+%% *Preparation* 
+% Initialize FiedTrip
+
+ft_defaults
+%% 
+% Set the path and the file names of the FIF files. We will be using the MaxFiltered 
+% data.
+
+data_path = 'C:\YOUR_DATA_FOLDER\';
+file_name = ['training_rawsss-1.fif';'training_rawsss-2.fif'];
+%% *Trial functions*
+% The trial-function (cfg.trialfun) should first be defined. It is a Matlab 
+% function which specifies how to select the trials based on the trigger information. 
+% Often Fieldtrip's generic function can be used for segmenting the data (ft_trialfun_general). 
+% This is the case if all you want is to select a time-window around the specified 
+% triggers. By using  custom written  trial-functions, it is  possible to perform 
+% a complex trial-selection (for instance taking behavioural responses into account). 
+% For further information see the FiedTrip <http://www.fieldtriptoolbox.org/example/making_your_own_trialfun_for_conditional_trial_definition 
+% tutorial>.
+%% *Segmenting the data and creating trials*
+% For reading the data in, we will first need to specify the MEG dataset ('cfg.dataset'), 
+% the events which the trials should be locked to and how many seconds prior ('cfg.trialdef.prestim') 
+% and after ('cfg.trialdef.poststim') the event a trial should contain. The event 
+% type is specified in 'cfg.trialdef.eventtype' and defined by the trigger channel 
+% (e.g. STI101, Stimulus, Response). The event/trigger value is  specified in 
+% 'cfg.trialdef.eventvalue'.  
+% 
+% Here the 'attend left' trials are coded with the trigger '21', whereas the 
+% 'attend right' trials with '22'.   
+% 
+% In this case, reading the data in does not require custom-written trial function 
+% and so the default 'ft_trialfun_general' will be used (hence it is not necessary 
+% to specify 'cfg.trialfun'). 
+% 
+% With the trial specification set, we can run the 'ft_definetrial' function, 
+% which provides a 'cfg' structure as output. Note that the actual trial segmentation 
+% is not performed just yet. This step is done by running the 'ft_preprocessing' 
+% function with the 'cfg' structure as input.  
+
+cfg                         = [];
+cfg.dataset                 = [data_path, file_name(1,:)];
+cfg.trialdef.eventtype      = 'STI101';  
+cfg.trialdef.eventvalue     = [21 22];    
+cfg.trialdef.prestim        = 2.5; 
+cfg.trialdef.poststim       = 2; 
+cfg                         = ft_definetrial(cfg);
+data_all = ft_preprocessing(cfg);
+%% 
+% This output (cfg) of 'ft_definetrial' contains all the information 'ft_preprocessing' 
+% will need, such as the name of the dataset, the name of the trial-function and 
+% a number of other pieces of information. Amongst them are the output structures 
+% of our trial-function the 'event' and 'trl' fields, discussed above.
+% 
+% The output structure of ft_preprocessing ('data_all') looks very dissimilar: 
+
+data_all
+%% 
+% Importantly this now contains the segmented data in the 'trial'  field. The 
+% other fields contain other relevant information such as the codes distinguishing 
+% 'attend left' and 'attend right' trials (21 and 22, respectively) in the 'trialinfo' 
+% field. This 'data_all' structure can be used for further processing steps.
+%% *Preregistration and publications*
+% Publication, example: 
+% 
+% |"|The data were segmented into intervals of 4.5 s, ranging from 2.5 s prior 
+% to stimulus onset and 2 s after.|"| 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>
