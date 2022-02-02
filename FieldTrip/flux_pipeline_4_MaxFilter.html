@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2021b"><title>Applying the MaxFilter after identifying bad sensors</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Applying the MaxFilter after identifying bad sensors</span></h1><div  class = 'S1'><span></span></div><div  class = 'S1'><span>MaxFilter is an Elekta/Neuromag software that was devloped to attenuate environmental and sensor noise in Elekta/Neuromag MEG systems. It is currently not possible to run Maxfilter via Fieldtrip or any other Matlab toolbox. It is however part of the MNE-Python package and to run Maxilter on the data with MNE-Python see the FLUX pipeline page: </span><a href = "https://github.com/Neuronal-Oscillations/FLUX/blob/main/MNEPython/ApplyingMaxFilter.ipynb"><span>Artefact attenuation by MaxFilter - MNE-Python</span></a><span>.</span></div><div  class = 'S1'><span>Alternatively, the stand-alone MaxFilter software is commonly accessible on sites with Elekta Neuromag MEG.</span></div><div  class = 'S1'><span>If MaxFilter is not available in either form, the subsequent Fieldtrip FLUX chapters can still be followed as the preprocessing and analysis will focus on MEG data recorded with gradiometer channels. However, we do not recommend the processing of magnetometers without MaxFiltering.</span></div><div  class = 'S1'><span>The tutorial dataset processed via MaxFilter is available at </span><a href = "https://www.neuosc.com/flux/"><span>https://www.neuosc.com/flux/</span></a><span>.   </span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Applying the MaxFilter after identifying bad sensors
+% 
+% 
+% MaxFilter is an Elekta/Neuromag software that was devloped to attenuate environmental 
+% and sensor noise in Elekta/Neuromag MEG systems. It is currently not possible 
+% to run Maxfilter via Fieldtrip or any other Matlab toolbox. It is however part 
+% of the MNE-Python package and to run Maxilter on the data with MNE-Python see 
+% the FLUX pipeline page: <https://github.com/Neuronal-Oscillations/FLUX/blob/main/MNEPython/ApplyingMaxFilter.ipynb 
+% Artefact attenuation by MaxFilter - MNE-Python>.
+% 
+% Alternatively, the stand-alone MaxFilter software is commonly accessible on 
+% sites with Elekta Neuromag MEG.
+% 
+% If MaxFilter is not available in either form, the subsequent Fieldtrip FLUX 
+% chapters can still be followed as the preprocessing and analysis will focus 
+% on MEG data recorded with gradiometer channels. However, we do not recommend 
+% the processing of magnetometers without MaxFiltering.
+% 
+% The tutorial dataset processed via MaxFilter is available at <https://www.neuosc.com/flux/ 
+% https://www.neuosc.com/flux/>.   
+% 
+% 
+% 
+% 
+% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>
