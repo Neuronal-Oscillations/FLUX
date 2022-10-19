@@ -12,6 +12,6 @@ https://neuosc.com/flux/
 ### How to cite the FLUX pipeline:
 Ferrante, O., Liu, L., Minarik, T., Gorska, U., Ghafari, T., Luo, H., & Jensen, O. (2022). FLUX: A pipeline for MEG analysis. NeuroImage, 253, 119047.
 
-### Contributors
+### How to contribute to FLUX
 WIP
 
